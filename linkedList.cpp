@@ -37,9 +37,8 @@ struct LinkedList_stack{
 
         else{
             int x = S.top->data;
-            Node* temp = S.top;
             S.top = S.top->next;
-            delete temp;
+            head = S.top;
             return x;
         }
     }
@@ -67,8 +66,6 @@ struct LinkedList_stack{
         }
         cout << endl;
     }
-
-
 };
 
 int main(){
@@ -76,30 +73,31 @@ int main(){
     clock_t start = clock();
 
     Stack s;
-    LinkedList_stack lls;
-    lls.PUSH(s, 8);
-    lls.PUSH(s, 10);
-    lls.PUSH(s, 5);
-    lls.PUSH(s, 11);
-    lls.PUSH(s, 15);
-    lls.PUSH(s, 23);
-    lls.PUSH(s, 6);
-    lls.PUSH(s, 18);
-    lls.PUSH(s, 20);
-    lls.PUSH(s, 17);
-    lls.Display();
-    lls.Pop(s);
-    lls.Pop(s);
-    lls.Pop(s);
-    lls.Pop(s);
-    lls.Pop(s);
-    lls.Display();
-    lls.PUSH(s, 4);
-    lls.PUSH(s, 30);
-    lls.PUSH(s, 3);
-    lls.PUSH(s, 1);
-    lls.Display();
+    LinkedList_stack * lls;
+    lls = new LinkedList_stack;
+    lls->PUSH(s, 8);
+    lls->PUSH(s, 10);
+    lls->PUSH(s, 5);
+    lls->PUSH(s, 11);
+    lls->PUSH(s, 15);
+    lls->PUSH(s, 23);
+    lls->PUSH(s, 6);
+    lls->PUSH(s, 18);
+    lls->PUSH(s, 20);
+    lls->PUSH(s, 17);
+    lls->Display();
+    lls->Pop(s);
+    lls->Pop(s);
+    lls->Pop(s);
+    lls->Pop(s);
+    lls->Pop(s);
+    lls->Display();
+    lls->PUSH(s, 4);
+    lls->PUSH(s, 30);
+    lls->PUSH(s, 3);
+    lls->PUSH(s, 1);
+    lls->Display();
     clock_t end = clock();
     double diff = (double)(end - start)/CLOCKS_PER_SEC;
-    cout<<"Time taken : "<<diff;
+    cout<<"Time taken : "<<diff<<" sec"<<endl;
 }
