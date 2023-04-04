@@ -28,6 +28,7 @@ struct Array_stack{
     int Pop(Stack1& S){
         if (IS_EMPTY(S)){
             cout<<"Stack Underflow"<<endl;
+            return -1;
         }
         else{
             S.top = S.top - 1;
@@ -55,7 +56,7 @@ struct Array_stack{
     }
 
     void Display(Stack1& S){
-        for(int i = 0; i < S.top; i++ ){
+        for(int i = 0; i <= S.top; i++ ){
             cout<<S.stack[i]<<" ";
         }
         cout<<endl;
@@ -95,6 +96,6 @@ int main(){
     lls.Display(s);
     clock_t end = clock();
     double diff = (double)(end - start)/CLOCKS_PER_SEC;
-    cout<<"Time taken : "<<diff;
+    cout<<"Time taken : "<<diff<<" sec"<<endl;
 
 }
